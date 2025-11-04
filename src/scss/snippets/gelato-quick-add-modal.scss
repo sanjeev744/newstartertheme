@@ -1,0 +1,322 @@
+// =============================
+// VARIANT PICKER BUTTON RADIOS
+// =============================
+.gelato-quick-add-modal {
+    &__option-group {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        margin-bottom: 12px;
+    }
+
+    &__option-label {
+        color: var(--Contrast, #1F1F1F);
+        leading-trim: both;
+        text-edge: cap;
+
+        /* DSK/Body Bolded */
+        font-family: "dejanire-headline";
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 20px;
+        /* 125% */
+    }
+
+    &__option-buttons {
+        display: flex;
+        gap: 8px;
+    }
+
+    &__radio {
+        position: absolute;
+        opacity: 0;
+        pointer-events: none;
+    }
+
+    &__option {
+        display: inline-block;
+        padding: 8px 18px;
+        border-radius: 40px;
+        border: 2px solid #F1F1F1;
+        background: #fff;
+        font-family: 'Instrument Sans', sans-serif;
+        cursor: pointer;
+        transition: background 0.18s, color 0.18s, border 0.18s;
+        user-select: none;
+        color: var(--Contrast, #1F1F1F);
+        text-align: center;
+        leading-trim: both;
+        text-edge: cap;
+
+        /* MOB/Body */
+        font-family: "dejanire-headline";
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 300;
+        line-height: 20px;
+
+        /* 142.857% */
+        &--out-of-stock {
+            opacity: 0.5;
+            pointer-events: none;
+            text-decoration: line-through;
+        }
+
+        &:active {
+            background: #1F1F1F;
+            color: #fff;
+            border-color: #1F1F1F;
+        }
+    }
+
+    &__radio:checked+&__option,
+    &__option--active {
+        background: #1F1F1F;
+        color: #fff;
+        border-color: #1F1F1F;
+    }
+
+    &__feedback {
+        color: #C00;
+        font-size: 0.95rem;
+        font-family: 'Instrument Sans', sans-serif;
+        margin: 6px 0 0 0;
+        display: none;
+    }
+}
+
+// Seal Subscriptions
+.gelato-quick-add-modal {
+    .sealsubs-container {
+        @extend .theme-sealsubs-container;
+        border-top: 1px solid var(--Secondary, #F1F1F1);
+    }
+
+    .sls-more-info-container {
+        display: none;
+    }
+
+    .gelato-quick-add-modal__subscription-warning {
+        color: #000;
+        text-align: center;
+        leading-trim: both;
+        text-edge: cap;
+        font-family: "dejanire-headline";
+        font-size: 12px;
+        font-style: normal;
+        font-weight: 300;
+        line-height: 20px;
+        /* 166.667% */
+    }
+}
+
+// =============================================================================
+// gelato QUICK ADD MODAL
+// =============================================================================
+.gelato-quick-add-modal {
+    position: fixed;
+    z-index: 1000;
+    opacity: 1;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(31, 31, 31, 0.32);
+    transition: opacity 1s;
+
+    &[hidden] {
+        opacity: 0;
+        z-index: -999;
+
+        .gelato-quick-add-modal__dialog {
+            opacity: 0;
+            bottom: -100%;
+        }
+    }
+
+    &__overlay {
+        position: absolute;
+        inset: 0;
+        background: transparent;
+        cursor: pointer;
+        display: block !important;
+    }
+
+    &__dialog {
+        position: absolute;
+        background: #fff;
+        // border-radius: 20px;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+        padding: 16px;
+        min-width: 320px;
+        max-width: 95vw;
+        width: 500px;
+        z-index: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        max-height: 80vh;
+        overflow-y: auto;
+        transition: opacity ease 1s, bottom ease 1s;
+
+        @include respond-below(md) {
+            max-height: 90vh;
+            bottom: 0;
+        }
+
+        .product-gallery-wrapper {
+            margin-bottom: 12px;
+
+            .product-gallery-main {
+                width: 100%;
+                height: auto;
+                aspect-ratio: 1;
+            }
+
+            .product-gallery-thumbs-wrapper {
+                display: none;
+            }
+        }
+    }
+
+    // Gallery styles
+    &__gallery {
+        position: relative;
+        margin-bottom: 16px;
+        border-radius: 8px;
+        overflow: hidden;
+    }
+
+    &__gallery-main {
+        position: relative;
+        width: 100%;
+        border-radius: 8px;
+        overflow: hidden;
+        @include respond-below(md) {
+            height: 300px;
+        }
+
+        .swiper-wrapper {
+            height: 100%;
+        }
+
+        .swiper-slide {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+        }
+    }
+
+    &__gallery-link {
+        display: block;
+        width: 100%;
+        height: 100%;
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+    &__gallery-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 8px;
+        display: block;
+        aspect-ratio: 1;
+    }
+
+    &__gallery-video {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 8px;
+    }
+
+
+    // Swiper navigation buttons
+    .swiper-button-next,
+    .swiper-button-prev {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        color: #1F1F1F;
+        transition: all 0.2s ease;
+        background: var(--Primary, #FFFCEF);
+        box-shadow: 0 7.229px 10.843px 0 rgba(0, 0, 0, 0.25);
+        display: flex;
+
+        &:after {
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        &:hover {
+            background: rgba(255, 255, 255, 1);
+            transform: scale(1.05);
+        }
+    }
+
+    .swiper-button-next {
+        right: 12px;
+    }
+
+    .swiper-button-prev {
+        left: 12px;
+
+    }
+
+    &__close {
+        position: absolute;
+        top: 16px;
+        right: 16px;
+        background: none;
+        border: none;
+        font-size: 2rem;
+        color: #1F1F1F;
+        cursor: pointer;
+        z-index: 2;
+        line-height: 1;
+        padding: 0;
+        background: #FFFCEF;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+    }
+
+    &__title {
+        font-size: 1.25rem;
+        font-family: 'dejanire-headline', serif;
+        font-weight: 500;
+        color: #1F1F1F;
+        margin-bottom: 18px;
+        text-align: center;
+    }
+
+    &__form {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 18px;
+    }
+
+    &__submit {
+        width: 100%;
+        border-radius: 40px;
+        font-size: 1rem;
+        font-family: 'Instrument Sans', sans-serif;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+        cursor: pointer;
+        transition: background 0.2s;
+
+        &:hover {
+            background: #333;
+        }
+    }
+}
+
+body.gelato-modal-open {
+    overflow: hidden;
+}

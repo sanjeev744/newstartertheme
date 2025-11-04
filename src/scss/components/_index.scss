@@ -1,0 +1,44 @@
+// =============================================================================
+// Component Library - Main Index
+// =============================================================================
+// This file imports all component styles for the theme
+// Each component should have its own partial file
+
+// Base Components
+@import './buttons';
+@import './forms';
+@import './typography';
+@import './icons';
+
+// Layout Components
+@import './grid';
+@import './container';
+@import './spacing';
+
+// Interactive Components
+@import './modal';
+@import './dropdown';
+@import './tabs';
+@import './accordion';
+@import './carousel';
+
+// Product Components
+@import './product-card';
+@import './product-grid';
+@import './product-form';
+@import './product-gallery';
+
+// Navigation Components
+@import './breadcrumbs';
+@import './pagination';
+@import './filters';
+
+// Feedback Components
+@import './alerts';
+@import './toasts';
+@import './loading';
+
+// Utility Components
+@import './responsive-image';
+@import './lazy-load';
+@import './animations';

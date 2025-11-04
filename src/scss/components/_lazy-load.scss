@@ -1,0 +1,43 @@
+// =============================================================================
+// Lazy Load Component
+// =============================================================================
+
+// Lazy load container
+.lazy-load {
+  // Add lazy load container styles
+}
+
+// Lazy load image
+.lazy-load__image {
+  // Add lazy load image styles
+}
+
+// Lazy load placeholder
+.lazy-load__placeholder {
+  // Add placeholder styles
+}
+
+// Lazy load loading
+.lazy-load--loading {
+  // Add loading state styles
+}
+
+// Lazy load loaded
+.lazy-load--loaded {
+  // Add loaded state styles
+}
+
+// Lazy load error
+.lazy-load--error {
+  // Add error state styles
+}
+
+// Lazy load threshold
+.lazy-load--threshold {
+  // Add threshold styles
+}
+
+// Responsive lazy load
+@media (max-width: 768px) {
+  // Add mobile lazy load styles
+}

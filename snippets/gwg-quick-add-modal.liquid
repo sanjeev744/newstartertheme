@@ -1,0 +1,137 @@
+{%- comment -%}
+  GWG Quick Add Modal
+  Props:
+    - product: {Object} Product object
+    - variant_id: {Number} Variant to preselect
+    - section_id: {String}
+    - show_subscriptions: {Boolean}
+{%- endcomment -%}
+
+<div id="gwg-quick-add-modal" class="gwg-quick-add-modal" aria-modal="true" role="dialog" tabindex="-1" hidden>
+  <div class="gwg-quick-add-modal__overlay" data-modal-close></div>
+  <div class="gwg-quick-add-modal__dialog" role="document">
+    <button class="gwg-quick-add-modal__close" type="button" aria-label="Close" data-modal-close>&times;</button>
+    <div id="gwg-quick-add-modal-content">
+      {% comment %} Gallery {% endcomment %}
+      <div class="gwg-quick-add-modal__gallery">
+        <div class="gwg-quick-add-modal__gallery-main swiper">
+          <div class="swiper-wrapper">
+            {% for media in product.media %}
+              <div class="swiper-slide">
+                {% if media.media_type == 'image' %}
+                  <a
+                    href="{{ media | image_url: width: 1200 }}"
+                    data-pswp-src="{{ media | image_url: width: 1200 }}"
+                    data-pswp-width="1200"
+                    data-pswp-height="1200"
+                    data-pswp-alt="{{ media.alt | escape }}"
+                    class="gwg-quick-add-modal__gallery-link"
+                  >
+                    <img
+                      src="{{ media | image_url: width: 600 }}"
+                      alt="{{ media.alt | escape }}"
+                      loading="lazy"
+                      class="gwg-quick-add-modal__gallery-image"
+                    >
+                  </a>
+                {% elsif media.media_type == 'video' %}
+                  <video
+                    class="gwg-quick-add-modal__gallery-video"
+                    controls
+                    preload="metadata"
+                  >
+                    <source src="{{ media.sources[1].url }}" type="video/mp4">
+                    Your browser does not support the video tag.
+                  </video>
+                {% endif %}
+              </div>
+            {% endfor %}
+          </div>
+          <div class="swiper-button-next"></div>
+          <div class="swiper-button-prev"></div>
+        </div>
+      </div>
+
+      {% comment %} Form {% endcomment %}
+      <div class="gwg-quick-add-modal__content">
+        <h2 class="gwg-quick-add-modal__title visually-hidden">{{ product.title }}</h2>
+        <div class="gwg-quick-add-modal__form">
+          <form class="gwg-quick-add-modal__product-form" data-product-id="{{ product.id }}">
+            {% if product.variants.size > 1 %}
+              {%- for option in product.options_with_values -%}
+                <div class="gwg-quick-add-modal__option-group">
+                  <span class="gwg-quick-add-modal__option-label">{{ option.name }}</span>
+                  <div class="gwg-quick-add-modal__option-buttons" role="radiogroup" aria-label="{{ option.name }}">
+                    {%- for value in option.values -%}
+                      {%- assign input_id = 'gwg-modal-option-'
+                        | append: forloop.parentloop.index0
+                        | append: '-'
+                        | append: forloop.index0
+                      -%}
+                      {%- assign option_index = forloop.parentloop.index0 -%}
+                      {%- assign value_index = forloop.index0 -%}
+                      {%- assign matching_variant = product.variants | where: 'options[option_index]', value | first -%}
+                      <input
+                        type="radio"
+                        id="{{ input_id }}"
+                        name="option-{{ option_index }}"
+                        value="{{ value }}"
+                        class="gwg-quick-add-modal__radio"
+                        {% if value == option.selected_value %}
+                          checked
+                        {% endif %}
+                      >
+                      <label
+                        for="{{ input_id }}"
+                        class="gwg-quick-add-modal__option{% if matching_variant and matching_variant.available == false %} gwg-quick-add-modal__option--out-of-stock{% endif %}"
+                      >
+                        {{- value -}}
+                      </label>
+                    {%- endfor -%}
+                  </div>
+                </div>
+              {%- endfor -%}
+            {% endif %}
+            <input
+              type="hidden"
+              name="id"
+              value="{{ product.selected_or_first_available_variant.id }}"
+              class="gwg-quick-add-modal__variant-id"
+            >
+            <div
+              class="sealsubs-target-element"
+              data-product="{{ product | json | escape }}"
+              data-handle="{{ product.handle }}"
+            ></div>
+
+            {% if product.selling_plan_groups.size > 0 %}
+              <div class="gwg-quick-add-modal__subscription-warning">
+                <p class="gwg-quick-add-modal__subscription-warning-text">
+                  You can modify or cancel your subscriptions anytime. There is no obligation. Subscriptions are renewed
+                  automatically
+                </p>
+              </div>
+            {% endif %}
+
+            <button type="submit" class="gwg-quick-add-modal__submit btn btn--primary btn--icon">Add to cart</button>
+            <div class="gwg-quick-add-modal__feedback" style="display:none"></div>
+            {% comment %} Estimated delivery date range {% endcomment %}
+            <div
+              class="gwg-quick-add-modal__estimated-delivery"
+              style="margin-top: 12px; text-align: center; font-size: 0.95rem; color: #1F1F1F;"
+            >
+              {% assign seconds_in_day = 86400 %}
+              {% assign min_days = 2 %}
+              {% assign max_days = 5 %}
+              {% assign min_days_in_seconds = min_days | times: seconds_in_day %}
+              {% assign max_days_in_seconds = max_days | times: seconds_in_day %}
+              {% assign min_delivery_date = 'now' | date: '%s' | plus: min_days_in_seconds | date: '%B %e' %}
+              {% assign max_delivery_date = 'now' | date: '%s' | plus: max_days_in_seconds | date: '%B %e' %}
+              <span>Estimated delivery: {{ min_delivery_date }} - {{ max_delivery_date }}</span>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

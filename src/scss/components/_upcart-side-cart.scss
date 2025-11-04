@@ -1,0 +1,395 @@
+@import 'buttons';
+@import 'typography';
+
+// =============================================================================
+// UPCART SIDE CART STYLES - ADAPTED FROM EXISTING PROJECT
+// =============================================================================
+// Styles for UpCart side cart
+// Documentation: https://upcart.app/
+// 
+// IMPORTANT: This file compiles separately for UpCart
+// Does not include dependencies from other SCSS theme files
+
+// CSS variables for customization
+:root {
+    --upcart-bg: #ffffff;
+    --upcart-overlay: rgba(0, 0, 0, 0.5);
+    --upcart-border: #e5e5e5;
+    --upcart-text: #1F1F1F;
+    --upcart-text-secondary: #6B7280;
+    --upcart-accent: #1F1F1F;
+    --upcart-accent-hover: #2C5AA0;
+    --upcart-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    --upcart-radius: 12px;
+    --upcart-transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+    // Project-specific colors
+    --Contrast: #1F1F1F;
+    --Contrast-1: #193547;
+    --Background: #FFF;
+    --Background-announcement: #FFFCEF;
+}
+
+// =============================================================================
+// UPCART SPECIFIC STYLES - ADAPTED FROM EXISTING PROJECT
+// =============================================================================
+
+// Main cart container
+div#CartPopup {
+    border-radius: 20px 0 0 20px;
+
+    // Container
+    .styles_CartPreview__card__ {
+        background: linear-gradient(347deg, #1C355E 6.27%, var(--Marine-blue, #3A6FC4) 93.08%) !important;
+    }
+
+    // Close button
+    .styles_Header__closeButton__{
+        background: transparent !important;
+        border: none !important;
+        transform: scale(1.5) !important;
+        .styles_Header__closeButtonIcon__{
+            fill: white !important;
+        }
+    }
+
+    // Header
+
+    // footer
+    .UpcartDesignSettings__cartAccentColor {
+        background: transparent !important;
+    }
+}
+
+// Announcement
+.upcart-announcement.upcart-announcement {
+    background-color: var(--Background-announcement, #FFFCEF);
+}
+
+// Cart header
+h3.upcart-header-text {
+    color: white !important;
+    // leading-trim: both; // Experimental CSS property
+    // text-edge: cap; // Experimental CSS property
+
+    // DSK/H3 BOLDED
+    font-family: "rig-sans";
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 28px; // 116.667%
+    letter-spacing: -0.24px;
+}
+
+// Rewards message
+.upcart-rewards-message {
+    color: white !important;
+    text-align: center;
+    // leading-trim: both; // Experimental CSS property
+    // text-edge: cap; // Experimental CSS property
+    font-family: "rig-sans";
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 28px; // 175%
+    letter-spacing: -0.16px;
+    text-transform: capitalize;
+    *{
+        color: white !important;
+    }
+}
+
+// Subscription and checkout buttons
+.upcart-subscription-upgrade-button {
+    @extend .btn;
+    @extend .btn--secondary;
+    background: white !important;
+    border-radius: 24px !important;
+    border: 1px solid #3A6FC4 !important;
+    width: 100% !important;
+    display: inline-flex !important;
+    justify-content: center !important;
+    transition: ease .2s !important;
+    color: #3A6FC4 !important;
+}
+
+.upcart-checkout-button {
+    @extend .btn;
+    @extend .btn--primary;
+    @extend .btn--arrow-right !optional;
+    border-radius: 24px !important;
+    border: 1px solid #3A6FC4 !important;
+    background: linear-gradient(250deg, #B8CCEA -4.16%, #3A6FC4 76.72%) !important;
+    box-shadow: 0 4px 16px 0 #80A8E3 !important;
+    width: 100% !important;
+    display: inline-flex !important;
+    transition: ease .2s !important;
+
+    span {
+        color: white !important;
+    }
+}
+
+.upcart-upsells-button {
+    @extend .btn;
+    @extend .btn--primary;
+    @extend .btn--arrow-right !optional;
+    border-radius: 24px !important;
+    border: 1px solid #3A6FC4 !important;
+    background: linear-gradient(250deg, #B8CCEA -4.16%, #3A6FC4 76.72%) !important;
+    box-shadow: none !important;
+    display: inline-flex !important;
+}
+
+
+// Variant picker - Upsells
+.styles_PreviewCarousel__select__{
+    border-radius: 24px !important;
+    border: 1px solid #3A6FC4 !important;
+    color: var(--Contrast-1) !important;
+}
+
+// Footer and subtotal
+.styles_Footer__cartSubtotalTitle__.styles_Footer__alignLeft__.UpcartDesignSettings__subtotalTextColor {
+    color: var(--Contrast-1);
+    // leading-trim: both; // Experimental CSS property
+    // text-edge: cap; // Experimental CSS property
+
+    // DSK/Body Bolded
+    font-family: "rig-sans";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px; // 125%
+}
+
+// Product rows
+.styles_ProductRow__product__ {
+    border: none !important;
+}
+
+// Stack container
+.Stack.Stack--distributionLeading.Stack--spacingLoose {
+    border-radius: 12px;
+    background: radial-gradient(88.63% 91.25% at 48.6% -2.76%, var(--Light-blue, rgba(184, 204, 234, 0.60)) 0%, rgba(255, 255, 255, 0.00) 100%), linear-gradient(180deg, var(--Light-blue, rgba(184, 204, 234, 0.80)) -15.98%, var(--Primary, rgba(255, 255, 255, 0.80)) 134.54%);
+    padding-right: 16px;
+    padding-bottom: 16px;
+    margin-left: 0 !important;
+}
+
+// Subtotal value
+span.styles_Footer__cartSubtotalValue__.styles_Footer__alignRight__.UpcartDesignSettings__subtotalTextColor {
+    color: var(--Contrast-1, #193547);
+    text-align: center;
+    // leading-trim: both; // Experimental CSS property
+    // text-edge: cap; // Experimental CSS property
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 24px; // 240%
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+}
+
+// Upsells title
+h2.upcart-upsells-title.UpcartDesignSettings__cartTextColor.styles_title__ {
+    color: white !important;
+    text-align: center;
+    // leading-trim: both; // Experimental CSS property
+    // text-edge: cap; // Experimental CSS property
+    font-family: "rig-sans";
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 28px; // 155.556%
+    letter-spacing: -0.18px;
+}
+
+// Product links and upsell titles
+a.upcart-product-title-link.styles_ProductRow__productTitleLink__{
+    color: var(--Contrast-1) !important;
+    // leading-trim: both; // Experimental CSS property
+    // text-edge: cap; // Experimental CSS property
+    font-family: "rig-sans";
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: 28px; /* 140% */
+}
+h3.upcart-upsell-item-title.styles_itemTitle__ {
+    color: white !important;
+    // leading-trim: both; // Experimental CSS property
+    // text-edge: cap; // Experimental CSS property
+    font-family: "rig-sans";
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: 28px; /* 140% */
+}
+
+// Secondary text
+span.TextStyle--variationSubdued.UpcartDesignSettings__cartTextSubduedColor {
+    color: var(--Contrast-1);
+    text-align: center;
+    // leading-trim: both; // Experimental CSS property
+    // text-edge: cap; // Experimental CSS property
+    font-family: "rig-sans";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px;
+    opacity: 1;
+}
+
+// Quantity input
+input.upcart-product-quantity-input.js-qty__num.styles_quantityInput__ {
+    border: none;
+    background: transparent !important;
+}
+// Quantity stepper
+.styles_ProductRow__stepper__{
+    background: transparent !important;
+}
+// Quantity buttons
+button.upcart-product-quantity-minus.styles_button__,
+button.upcart-product-quantity-plus.styles_button__ {
+    border-radius: 100% !important;
+    border: 1px solid var(--Contrast-1) !important;
+    width: 30px !important;
+    height: 30px !important;
+    background: transparent !important;
+    color: var(--Contrast-1) !important;
+}
+
+// General buttons
+button.UpcartDesignSettings__button,
+input.UpcartDesignSettings__button,
+.UpcartDesignSettings__button,
+.UpcartDesignSettings__button span,
+.UpcartDesignSettings__button:visited {
+    background-color: #1F1F1F;
+}
+
+// Product and upsell prices
+.upcart-item-prices-row.styles_ProductRow__priceRow__,
+span.upcart-upsell-item-price-row.styles_PreviewCarousel__itemPrice__ {
+    color: var(--Contrast-1) !important;
+    text-align: center;
+    // leading-trim: both; // Experimental CSS property
+    // text-edge: cap; // Experimental CSS property
+    font-family: "rig-sans";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px;
+}
+
+// Savings/discounts
+span.upcart-product-savings.styles_ProductRow__cartDiscountFormat__.UpcartDesignSettings__cartSavingsTextColor {
+    font-family: "rig-sans";
+}
+
+// Product images
+.styles_ProductRow__imageWrapper__ a img {
+    border-radius: 8px;
+}
+
+img.upcart-upsell-item-image {
+    border-radius: 8px;
+    backdrop-filter: blur(50px);
+    -webkit-backdrop-filter: blur(50px);
+    // box-shadow: inset 1px 1px 0 rgba(255, 255, 255, 0.75), inset 0 0 5px rgba(255, 255, 255, 0.75);
+    box-shadow: inset 1px 2px 8px 0px rgba(255, 255, 255, 0.75), inset 0 0 0px rgba(255, 255, 255, 0.25);
+    transition: ease .3s;
+    &:hover {
+        box-shadow: inset -1px -2px 18px 0px rgba(255, 255, 255, 0.75), inset 0 0 0px rgba(255, 255, 255, 0.25);
+    }
+}
+
+// Rewards progress bar
+.styles_Rewards__progressBar__ {
+    overflow: visible !important;
+    border-radius: 14px;
+    max-width: 100%;
+    margin-top: 20px !important;
+}
+
+.styles_Rewards__progressBar--progress__.upcart-rewards-bar-foreground {
+    overflow: visible !important;
+    position: relative;
+    border-radius: 14px;
+    max-width: 100%;
+
+    // Reward icon
+    &:after {
+        content: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMCIgaGVpZ2h0PSIyOCIgdmlld0JveD0iMCAwIDMwIDI4IiBmaWxsPSJub25lIj4KICA8cmVjdCB4PSIwLjc3MjEzNSIgeT0iMC42NjY2NjciIHdpZHRoPSIyNy42NDE4IiBoZWlnaHQ9IjI2LjY2NjciIHJ4PSIxMy4zMzMzIiBmaWxsPSIjMUYxRjFGIi8+CiAgPHJlY3QgeD0iMC43NzIxMzUiIHk9IjAuNjY2NjY3IiB3aWR0aD0iMjcuNjQxOCIgaGVpZ2h0PSIyNi42NjY3IiByeD0iMTMuMzMzMyIgc3Ryb2tlPSIjRkZGQ0VGIiBzdHJva2Utd2lkdGg9IjEuMzMzMzMiLz4KICA8cGF0aCBkPSJNNy40Njg3OCA5LjQxMzA5QzcuMTc4ODggOS40MTMwOSA2LjkzODQ4IDkuNjQyMjcgNi45Mzg0OCA5LjkxODY0QzYuOTM4NDggMTAuMTk1IDcuMTc4ODggMTAuNDI0MiA3LjQ2ODc4IDEwLjQyNDJIMTIuMDY0N0MxMi4zNTQ2IDEwLjQyNDIgMTIuNTk1IDEwLjY1MzQgMTIuNTk1IDEwLjkyOThDMTIuNTk1IDExLjIwNjEgMTIuMzU0NiAxMS40MzUzIDEyLjA2NDcgMTEuNDM1M0g3LjQ2ODc4QzcuMTc4ODggMTEuNDM1MyA2LjkzODQ4IDExLjY2NDUgNi45Mzg0OCAxMS45NDA5QzYuOTM4NDggMTIuMjE3MiA3LjE3ODg4IDEyLjQ0NjQgNy40Njg3OCAxMi40NDY0SDEwLjY1MDZDMTAuOTQwNSAxMi40NDY0IDExLjE4MDkgMTIuNjc1NiAxMS4xODA5IDEyLjk1MkMxMS4xODA5IDEzLjIyODMgMTAuOTQwNSAxMy40NTc1IDEwLjY1MDYgMTMuNDU3NUg3LjQ2ODc4QzcuMTc4ODggMTMuNDU3NSA2LjkzODQ4IDEzLjY4NjcgNi45Mzg0OCAxMy45NjMxQzYuOTM4NDggMTQuMjM5NSA3LjE3ODg4IDE0LjQ2ODYgNy40Njg3OCAxNC40Njg2SDkuMjM2NDZDOS41MjYzNiAxNC40Njg2IDkuNzY2NzYgMTQuNjk3OCA5Ljc2Njc2IDE0Ljk3NDJDOS43NjY3NiAxNS4yNTA2IDkuNTI2MzYgMTUuNDc5OCA5LjIzNjQ2IDE1LjQ3OThINy40Njg3OEM3LjE3ODg4IDE1LjQ3OTggNi45Mzg0OCAxNS43MDg5IDYuOTM4NDggMTUuOTg1M1YxNi42NTk0QzYuOTM4NDggMTcuNDk1MiA3LjY1MjYyIDE4LjE3NiA4LjUyOTM5IDE4LjE3Nkg4Ljc4MzkzQzkuMDE3MjYgMTguOTUxMiA5Ljc2Njc2IDE5LjUyNDIgMTAuNjUwNiAxOS41MjQyQzExLjUzNDQgMTkuNTI0MiAxMi4yOTEgMTguOTUxMiAxMi41MTczIDE4LjE3NkgxNS43NzY5VjEwLjkyOThDMTUuNzc2OSAxMC4wOTM5IDE1LjA2MjcgOS40MTMwOSAxNC4xODYgOS40MTMwOUg3LjQ2ODc4Wk0xNi44Mzc1IDEwLjc2MTJWMTcuNjcwNUMxNi44Mzc1IDE4LjY4ODMgMTcuNzE0MiAxOS41MjQyIDE4Ljc4MTkgMTkuNTI0MkMxOS42NjU4IDE5LjUyNDIgMjAuNDIyMyAxOC45NTEyIDIwLjY0ODYgMTguMTc2SDIwLjkwMzFDMjEuNzg3IDE4LjE3NiAyMi40OTQgMTcuNTAyIDIyLjQ5NCAxNi42NTk0VjE0LjUxNThDMjIuNDk0IDE0LjMwNjkgMjIuNDQ0NSAxNC4wOTEyIDIyLjM1MjYgMTMuODk1N0wyMS4zMTMyIDExLjY1NzhDMjEuMDU4NyAxMS4xMTE4IDIwLjQ5MyAxMC43NjEyIDE5Ljg2MzcgMTAuNzYxMkgxNi44Mzc1Wk0xOC4yNTE2IDExLjc3MjNIMTkuODYzN0MyMC4wNzU5IDExLjc3MjMgMjAuMjU5NyAxMS44ODY5IDIwLjM0NDUgMTIuMDc1N0wyMC45MjQzIDEzLjMyMjdDMjEuMDMwNCAxMy41NDUyIDIwLjg2MDcgMTMuNzk0NiAyMC41OTkxIDEzLjc5NDZIMTguMjQ0NUMxOC4wNDY2IDEzLjc5NDYgMTcuODkxIDEzLjY0NjMgMTcuODkxIDEzLjQ1NzVWMTIuMTA5NEMxNy44OTEgMTEuOTIwNiAxOC4wNDY2IDExLjc3MjMgMTguMjQ0NSAxMS43NzIzSDE4LjI1MTZaTTEwLjY1MDYgMTYuODI3OUMxMS4xMzg1IDE2LjgyNzkgMTEuNTM0NCAxNy4yMDU0IDExLjUzNDQgMTcuNjcwNUMxMS41MzQ0IDE4LjEzNTYgMTEuMTM4NSAxOC41MTMxIDEwLjY1MDYgMTguNTEzMUMxMC4xNjI3IDE4LjUxMzEgOS43NjY3NiAxOC4xMzU2IDkuNzY2NzYgMTcuNjcwNUM5Ljc2Njc2IDE3LjIwNTQgMTAuMTYyNyAxNi44Mjc5IDEwLjY1MDYgMTYuODI3OVpNMTguNzgxOSAxNi44Mjc5QzE5LjI2OTggMTYuODI3OSAxOS42NjU4IDE3LjIwNTQgMTkuNjY1OCAxNy42NzA1QzE5LjY2NTggMTguMTM1NiAxOS4yNjk4IDE4LjUxMzEgMTguNzgxOSAxOC41MTMxQzE4LjI5NCAxOC41MTMxIDE3Ljg5ODEgMTguMTM1NiAxNy44OTgxIDE3LjY3MDVDMTcuODk4MSAxNy4yMDU0IDE4LjI5NCAxNi44Mjc5IDE4Ljc4MTkgMTYuODI3OVoiIGZpbGw9IndoaXRlIi8+Cjwvc3ZnPg==");
+        position: absolute;
+        right: -10px;
+        top: -10px;
+    }
+}
+
+// =============================================================================
+// RESPONSIVE ADJUSTMENTS
+// =============================================================================
+
+@media (max-width: 768px) {
+
+    // Mobile-specific adjustments
+    div#CartPopup {
+        border-radius: 0; // No border radius on mobile
+    }
+
+    h3.upcart-header-text {
+        font-size: 20px;
+        line-height: 24px;
+    }
+
+    .upcart-rewards-message {
+        font-size: 14px;
+        line-height: 20px;
+    }
+
+    .upcart-subscription-upgrade-button,
+    .upcart-checkout-button,
+    .upcart-upsells-button {
+        font-size: 11px !important;
+        padding: 10px 10px 10px 14px !important;
+    }
+
+    h2.upcart-upsells-title.UpcartDesignSettings__cartTextColor.styles_title__ {
+        font-size: 16px;
+        line-height: 24px;
+    }
+
+    a.upcart-product-title-link.styles_ProductRow__productTitleLink__,
+    h3.upcart-upsell-item-title.styles_itemTitle__ {
+        font-size: 16px;
+        line-height: 20px;
+    }
+
+    span.TextStyle--variationSubdued.UpcartDesignSettings__cartTextSubduedColor {
+        font-size: 14px;
+        line-height: 18px;
+    }
+
+    .styles_Footer__cartSubtotalTitle__.styles_Footer__alignLeft__.UpcartDesignSettings__subtotalTextColor {
+        font-size: 14px;
+        line-height: 18px;
+    }
+
+    span.styles_Footer__cartSubtotalValue__.styles_Footer__alignRight__.UpcartDesignSettings__subtotalTextColor {
+        font-size: 14px;
+        line-height: 20px;
+    }
+
+    .upcart-item-prices-row.styles_ProductRow__priceRow__,
+    span.upcart-upsell-item-price-row.styles_PreviewCarousel__itemPrice__ {
+        font-size: 14px;
+        line-height: 18px;
+    }
+
+    button.upcart-product-quantity-minus.styles_button__,
+    button.upcart-product-quantity-plus.styles_button__ {
+        width: 28px !important;
+        height: 28px !important;
+    }
+}

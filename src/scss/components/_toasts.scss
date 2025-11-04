@@ -1,0 +1,46 @@
+// =============================================================================
+// Toasts Component
+// =============================================================================
+
+// Toast container
+.toast {
+  // Add toast container styles
+}
+
+// Toast header
+.toast__header {
+  // Add header styles
+}
+
+// Toast body
+.toast__body {
+  // Add body styles
+}
+
+// Toast close
+.toast__close {
+  // Add close button styles
+}
+
+// Toast types
+.toast--success {
+  // Add success toast styles
+}
+
+.toast--error {
+  // Add error toast styles
+}
+
+.toast--warning {
+  // Add warning toast styles
+}
+
+// Toast stack
+.toast-stack {
+  // Add toast stack styles
+}
+
+// Responsive toasts
+@media (max-width: 768px) {
+  // Add mobile toast styles
+}

@@ -1,0 +1,58 @@
+{
+  "compilerOptions": {
+    "target": "ES2020",
+    "module": "ESNext",
+    "moduleResolution": "node",
+    "lib": ["ES2020", "DOM", "DOM.Iterable"],
+    "allowJs": true,
+    "checkJs": false,
+    "jsx": "preserve",
+    "declaration": false,
+    "declarationMap": false,
+    "sourceMap": true,
+    "outDir": "./dist",
+    "rootDir": "./src",
+    "strict": true,
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "strictFunctionTypes": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "noUncheckedIndexedAccess": true,
+    "noImplicitOverride": true,
+    "noPropertyAccessFromIndexSignature": true,
+    "exactOptionalPropertyTypes": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "forceConsistentCasingInFileNames": true,
+    "skipLibCheck": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "allowImportingTsExtensions": false,
+    "noEmit": false,
+    "baseUrl": "./src",
+    "paths": {
+      "@/*": ["*"],
+      "@/components/*": ["js/components/*"],
+      "@/sections/*": ["js/sections/*"],
+      "@/snippets/*": ["js/snippets/*"],
+      "@/templates/*": ["js/templates/*"],
+      "@/shared/*": ["js/shared/*"],
+      "@/types/*": ["js/types/*"]
+    }
+  },
+  "include": [
+    "src/js/**/*",
+    "src/js/**/*.ts",
+    "src/js/**/*.js"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist",
+    "assets",
+    "sections",
+    "snippets",
+    "templates",
+    "layout"
+  ]
+}

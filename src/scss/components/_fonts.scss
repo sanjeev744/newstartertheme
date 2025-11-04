@@ -1,0 +1,55 @@
+// =============================================================================
+// Custom Font Declarations - Based on Figma Design
+// =============================================================================
+
+// De Facto Zamosc - Complete Font Family
+@font-face {
+  font-family: 'De Facto Zamosc';
+  src: url('/DeFactoZamosc-Regular.ttf') format('truetype');
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'De Facto Zamosc';
+  src: url('/DeFactoZamosc-Regular.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'De Facto Zamosc';
+  src: url('/DeFactoZamosc-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'De Facto Zamosc';
+  src: url('/DeFactoZamosc-Regular.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'De Facto Zamosc';
+  src: url('/DeFactoZamosc-Regular.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'De Facto Zamosc';
+  src: url('/DeFactoZamosc-Regular.ttf') format('truetype');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+// Note: All font weights point to the same TTF file since it contains the complete font family
+// The browser will use the appropriate weight from the font file based on the CSS font-weight property

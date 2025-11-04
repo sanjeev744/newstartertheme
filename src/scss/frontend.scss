@@ -1,0 +1,31 @@
+// =============================================================================
+// Gelato Custom Styles - Main Stylesheet
+// =============================================================================
+
+// Import existing custom styles
+@import './media-queries.scss';
+
+// Import custom sections (with project-specific prefix)
+@import './sections/gelato-faqs.scss';
+
+// Import custom snippets (with project-specific prefix)
+@import './snippets/gelato-product-card.scss';
+
+// Import component library
+@import './components/index.scss';
+
+// Import vendor styles
+@import './frontend-vendor.scss';
+
+// Import templates
+@import './templates/products.scss';
+
+// Add your custom styles here
+// All new sections and snippets should use your project-specific prefix
+// Examples: gelato-product-card, brand-hero-banner, client-navbar, etc.
+//
+// Consistent Naming Structure:
+// - Liquid files: gelato-faqs.liquid
+// - SCSS files: gelato-faqs.scss  
+// - JavaScript files: gelato-faqs.js
+// This makes it easy to find all related files for a component.
